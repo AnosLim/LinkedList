@@ -11,16 +11,19 @@ LinkedList *createLinkedList(){
 }
 
 Element *list_removeLast(LinkedList *list){
-	Element *ptrToElem;
+	Element *addrOfElem;
 	
-	ptrToElem = list->tail;
+	addrOfElem = list->tail;
 	
 	if(list->head == list->tail){
 		list->head = NULL;
 		list->tail = NULL;
 	}
+	if(list->tail > list->head){
+		*(list->tail)--;
+	}
 	
 	list->length = (list->length) - 1;
 
-	return ptrToElem;
+	return addrOfElem;
 }

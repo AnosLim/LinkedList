@@ -33,7 +33,7 @@ void test_no_test_but_playing_around(){
 	dumpLinkedList(list);
 }*/
 
-void test_list_removeLast_should_remove_last_element_with_1_element(){
+void test_list_removeLast_should_remove_last_element_testing_with_1_element(){
 	LinkedList *list;
 	list = createLinkedList();
 	
@@ -42,11 +42,30 @@ void test_list_removeLast_should_remove_last_element_with_1_element(){
 	list->head = &arrayElem[0];
 	list->tail = &arrayElem[(list->length) - 1];
 	
-	printf("Addr of arrayElem[0]: %p\n", &arrayElem[0]); //Address of returned element
+	//printf("Addr of arrayElem[0]: %p\n", &arrayElem[0]); //Address of returned element
 	
 	TEST_ASSERT_EQUAL_PTR(&arrayElem[0], list_removeLast(list));
 	TEST_ASSERT_NULL(list->head);
 	TEST_ASSERT_NULL(list->tail);
 	TEST_ASSERT_EQUAL(0, list->length);
+	
+}
+
+void test_list_removeLast_should_remove_last_element_testing_with_2_elements(){
+	LinkedList *list;
+	list = createLinkedList();
+	
+	Element arrayElem[] = {{.next = &arrayElem[1], .data = 1}, {.next = NULL, .data = 2}};
+	list->length = 2;
+	list->head = &arrayElem[0];
+	list->tail = &arrayElem[(list->length) - 1];
+	
+	printf("Addr of arrayElem[0]: %p\n", &arrayElem[0]);
+	printf("Addr of arrayElem[1]: %p\n", &arrayElem[1]); //Address of returned element
+	
+	TEST_ASSERT_EQUAL_PTR(&arrayElem[1], list_removeLast(list));
+	TEST_ASSERT_EQUAL_PTR(&arrayElem[0], list->head);
+	TEST_ASSERT_EQUAL_PTR(&arrayElem[(list->length) - 1], list->tail);
+	TEST_ASSERT_EQUAL(1, list->length);
 	
 }
