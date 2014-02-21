@@ -21,6 +21,7 @@ Element *list_removeLast(LinkedList *list){
 	}
 	if(list->tail > list->head){
 		*(list->tail)--;
+		(list->tail)->next = NULL;
 	}
 	
 	list->length = (list->length) - 1;
