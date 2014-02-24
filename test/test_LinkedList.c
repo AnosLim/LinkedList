@@ -14,25 +14,6 @@ void test_createLinkedList_should_return_LinkedList_object(){
 	TEST_ASSERT_EQUAL(0, list->length);
 }
 
-/*void dumpLinkedList(LinkedList *list){
-	Element *elem;
-	printf("head: %p, tail:%p, length:%d\n", list->head, list->tail, list->length);
-	for(elem = list->head; elem != NULL; elem = elem->next){
-		printf("data: %d, addr: %p\n", elem->data, elem);
-	}
-}
-
-void test_no_test_but_playing_around(){
-	LinkedList *list = createLinkedList();
-	Element arrayElem[3] = {{.next = &arrayElem[1], .data = 1},
-							{.next = &arrayElem[2], .data = 2},
-							{.next = NULL, .data = 3}};
-							
-	list->head = &arrayElem[0];
-	list->length = 3; 
-	dumpLinkedList(list);
-}*/
-
 void test_list_removeLast_should_remove_last_element_testing_with_1_element(){
 	LinkedList *list;
 	list = createLinkedList();
@@ -44,7 +25,7 @@ void test_list_removeLast_should_remove_last_element_testing_with_1_element(){
 	
 	//printf("Addr of arrayElem[0]: %p\n", &arrayElem[0]); //Address of returned element
 	
-	TEST_ASSERT_EQUAL_PTR(&arrayElem[0], list_removeLast(list));
+	TEST_ASSERT_EQUAL_PTR(&arrayElem[0], list_removeLast(list));//Test for returned address
 	TEST_ASSERT_NULL(list->head);
 	TEST_ASSERT_NULL(list->tail);
 	TEST_ASSERT_EQUAL(0, list->length);
@@ -107,10 +88,10 @@ void test_list_removeLast_should_remove_last_element_testing_with_4_elements(){
 	list->head = &arrayElem[0];
 	list->tail = &arrayElem[(list->length) - 1];
 	
-	printf("Addr of arrayElem[0]: %p\n", &arrayElem[0]);
-	printf("Addr of arrayElem[1]: %p\n", &arrayElem[1]);
-	printf("Addr of arrayElem[2]: %p\n", &arrayElem[2]);
-	printf("Addr of arrayElem[3]: %p\n", &arrayElem[3]); //Address of returned element
+	//printf("Addr of arrayElem[0]: %p\n", &arrayElem[0]);
+	//printf("Addr of arrayElem[1]: %p\n", &arrayElem[1]);
+	//printf("Addr of arrayElem[2]: %p\n", &arrayElem[2]);
+	//printf("Addr of arrayElem[3]: %p\n", &arrayElem[3]); //Address of returned element
 	
 	TEST_ASSERT_EQUAL_PTR(&arrayElem[3], list_removeLast(list));
 	TEST_ASSERT_EQUAL_PTR(&arrayElem[0], list->head);
