@@ -24,7 +24,8 @@ Element *list_removeLast(LinkedList *list){
 		(list->tail)->next = NULL;
 	}
 	
-	list->length = (list->length) - 1;
+	if(list->length > 0)
+		list->length = (list->length) - 1;
 
 	return addrOfElem;
 }
