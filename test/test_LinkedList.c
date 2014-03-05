@@ -23,8 +23,6 @@ void test_list_removeLast_should_remove_last_element_testing_with_no_element(){
 	list->head = NULL;
 	list->tail = NULL;
 	
-	//printf("Addr of arrayElem[0]: %p\n", &arrayElem[0]); //Address of returned element
-	
 	TEST_ASSERT_NULL(list_removeLast(list));//Test for returned address
 	TEST_ASSERT_NULL(list->head);
 	TEST_ASSERT_NULL(list->tail);
